@@ -1,0 +1,7 @@
+"sierra"
+{
+	"base"		"sandbox"
+	"title"		"Riverfox: Half-Life 2 Roleplay"
+	"category"	"rp"
+	"menusystem"	"0"
+}
