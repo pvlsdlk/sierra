@@ -3,7 +3,7 @@ local _startTime = os.clock()
 GM.Name = "Riverfox: Half-Life 2 Roleplay"
 GM.Author = "Sturm & Other contributors"
 GM.Website = "https://discord.com"
-Sierra.GameVersion = "0.1"
+Sierra.GameVersion = "0.23"
 Sierra.DeveloperVersion = true
 
 if(SERVER) then
@@ -59,7 +59,6 @@ function Sierra.LoadFrameworkFolder(directory)
 end
 
 MsgC(Color(0, 255, 100, 255), "[Sierra] ", color_white, "Loading libraries...\n")
-Sierra.LoadFrameworkFile("sierra/lib/sh_netstream.lua")
 Sierra.LoadFrameworkFolder("sierra/lib")
 MsgC(Color(0, 255, 100, 255), "[Sierra] ", color_white, "Loading SAC...\n")
 Sierra.LoadFrameworkFolder("sierra/lib/sac")

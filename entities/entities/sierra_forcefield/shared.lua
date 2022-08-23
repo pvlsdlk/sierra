@@ -2,6 +2,9 @@ if (SERVER) then
 	AddCSLuaFile();
 end;
 
+AddCSLuaFile("imgui.lua")
+local imgui = include("imgui.lua")
+
 local material = Material("effects/com_shield003a");
 local material2 = Material("effects/com_shield004a");
 
@@ -183,7 +186,6 @@ if (SERVER) then
 end;
 
 if (CLIENT) then
-
 	function ENT:Initialize()
 		local data = {};
 		data.start = self:GetPos() + Vector(0, 0, 50) + self:GetRight() * -16;
@@ -256,6 +258,30 @@ if (CLIENT) then
 			mesh.End();
 		end;
 	end;
+
+	local textDelay = 0
+	local surface = surface
+
+	function ENT:DrawTranslucent()
+		local width = self:GetDTEntity(0):GetPos():Distance(self:GetPos())
+		local text = "AcCESs rESTRIcTED"
+
+		if	imgui.Entity3D2D(self, Vector(0, width/2, 40), Angle(0, 90, 90), 0.1) then
+			surface.SetDrawColor(Color(136,0,0,TimedSin(0.6,125,200,0)))
+			surface.DrawRect(width*-2,-560,width*4.8,20)
+			surface.DrawRect(width*-2,-160,width*4.8,20)
+			surface.DrawRect(width*-3,-500,width*7,300)
+
+			surface.SetFont("Glitch-20")
+			surface.SetTextPos(width*-2+5,-440)
+			surface.SetTextColor(color_white)
+			surface.DrawText(text)
+
+			draw.DrawText("Universal Union Access-Point L3-14:E\n\nAUTHORIZED PERSONNEL ONLY\nTrespassing will result in\nAnti-Civil violation level 4: Criminal act 603. & 23.\n", "UI-80", width*-2+5,-120,color_white)
+
+			imgui.End3D2D()
+		end
+	end
 end;
 
 function ENT:ShouldCollide(ent)

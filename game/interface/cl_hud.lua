@@ -35,7 +35,7 @@ local function DrawOverheadInfo(target, alpha)
     draw.DrawText(team.GetName(target:Team()), "UI-22-Shadow", pos.x, pos.y+20, col, 1)
     if(target:IsUserGroup("moderator")) then
         draw.DrawText("Game Moderator", "UI-25-ShadowOutline", pos.x, pos.y-20, _modCol, 1)
-    elseif(target:IsUserGroup("donator")) then
+    elseif(!target:IsUserGroup("donator")) then
         draw.DrawText("Donator", "UI-25-ShadowOutline", pos.x, pos.y-20, _donCol, 1)      
     elseif(target:IsAdmin()) then
         draw.DrawText("Lead Game Moderator", "UI-25-ShadowOutline", pos.x, pos.y-20, _leadCol, 1)      
@@ -156,7 +156,7 @@ local function _drawGenBox()
     _surface.DrawText(_teamName)
 
     -- Tokens
-    _surface.SetFont("UI-22-Shadow")
+    _surface.SetFont("UI-21-Shadow")
     _surface.SetTextPos(_w*0.06, _h*0.92)
     _surface.SetTextColor(temp_color)
     _surface.DrawText(_money.." TOKENS")

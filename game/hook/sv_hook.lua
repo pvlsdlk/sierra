@@ -12,7 +12,7 @@ function GM:PlayerSpawn(ply)
 
     ply:SetupHands()
     ply:Give("weapon_physgun")
-    ply:Give("gmod_hands")
+    ply:Give("gmod_tool")
     ply:Give("sierra_hands")
     ply:SelectWeapon("sierra_hands")
 end
