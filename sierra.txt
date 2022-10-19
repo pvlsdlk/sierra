@@ -6,5 +6,4 @@
 	"maps"			"^rp_"
 	"menusystem"	"0"
 	"author"		"Sturm & Other contributors"
-	"description"	"A propriatery source engine framework for Riverfox-Community."
 }
